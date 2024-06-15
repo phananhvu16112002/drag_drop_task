@@ -3,14 +3,16 @@
         <div class="container text-center">
             <div class="row align-items-start">
                 <div class="col-md-4" @dragover.prevent @drop="onDrop('todoTasks')">
-                    <CardComponents title="Todo" :length="todoLength" :tasks="todoTasks" @dragStart="onDragStart" />
+                    <CardComponents title="Todo" :length="todoLength" :tasks="todoTasks" @dragStart="onDragStart"
+                        :isDragging="isDragging" :taskId="id" />
                 </div>
                 <div class="col-md-4" @dragover.prevent @drop="onDrop('progressTasks')">
                     <CardComponents title="In Progress" :length="progressLength" :tasks="progressTasks"
-                        @dragStart="onDragStart" />
+                        @dragStart="onDragStart" :isDragging="isDragging"  :taskId="id"/>
                 </div>
                 <div class="col-md-4" @dragover.prevent @drop="onDrop('doneTasks')">
-                    <CardComponents title="Done" :length="doneLength" :tasks="doneTasks" @dragStart="onDragStart" />
+                    <CardComponents title="Done" :length="doneLength" :tasks="doneTasks" @dragStart="onDragStart"
+                        :isDragging="isDragging" :taskId="id" />
                 </div>
             </div>
         </div>
@@ -40,8 +42,11 @@ const doneLength = computed(() => doneTasks.value.length);
 
 const draggedTask = ref(null);
 const isDragging = ref(false)
+const id = ref();
 
 const onDragStart = (task) => {
+    isDragging.value = true;
+    id.value = task.id
     draggedTask.value = task;
 };
 
@@ -66,8 +71,15 @@ const onDrop = (targetList) => {
     }
 
     // Clear the dragged task
+    isDragging.value = false;
     draggedTask.value = null;
 };
+
+useAsyncData(async () => {
+    const response = await fetch('https://jsonplaceholder.typicode.com/todos/1');
+    console.log('res', response);
+})
+
 </script>
 
 <style scoped>
