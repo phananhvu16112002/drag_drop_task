@@ -1,7 +1,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  css: ["bootstrap/dist/css/bootstrap.min.css"], // add
+
+  // add
+  css: ["bootstrap/dist/css/bootstrap.min.css"],
+
   vite: {
     define: {
       "process.env.DEBUG": false,
@@ -18,4 +21,6 @@ export default defineNuxtConfig({
       ],
     },
   },
+
+  modules: ["@ant-design-vue/nuxt"]
 })

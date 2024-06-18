@@ -2,17 +2,32 @@
     <div>
         <div class="container text-center">
             <div class="row align-items-start">
-                <div class="col-md-4" @dragover.prevent @drop="onDrop('todoTasks')">
-                    <CardComponents title="Todo" :length="todoLength" :tasks="todoTasks" @dragStart="onDragStart"
-                        :isDragging="isDragging" :taskId="id" />
+                <div class="col-md-3" @dragover.prevent @drop="onDrop('todoTasks')">
+                    <!-- <CardComponents title="Todo" :length="todoLength" :tasks="todoTasks" @dragStart="onDragStart"
+                        :isDragging="isDragging" :taskId="id" /> -->
+                    <TypeComponents style="margin-bottom: 10px" line_color="#fab184" title="Todo"></TypeComponents>
+                    <TaskComponents title_type="Tasks to be done"></TaskComponents>
                 </div>
-                <div class="col-md-4" @dragover.prevent @drop="onDrop('progressTasks')">
-                    <CardComponents title="In Progress" :length="progressLength" :tasks="progressTasks"
-                        @dragStart="onDragStart" :isDragging="isDragging"  :taskId="id"/>
+                <div class="col-md-3" @dragover.prevent @drop="onDrop('progressTasks')">
+                    <!-- <CardComponents title="In Progress" :length="progressLength" :tasks="progressTasks"
+                        @dragStart="onDragStart" :isDragging="isDragging"  :taskId="id"/> -->
+                    <TypeComponents line_color="#a201f2" title="In Progress"></TypeComponents>
+                    <TaskComponents title_type="Paused activities to be resumed"></TaskComponents>
+
                 </div>
-                <div class="col-md-4" @dragover.prevent @drop="onDrop('doneTasks')">
-                    <CardComponents title="Done" :length="doneLength" :tasks="doneTasks" @dragStart="onDragStart"
-                        :isDragging="isDragging" :taskId="id" />
+                <div class="col-md-3" @dragover.prevent @drop="onDrop('doneTasks')">
+                    <!-- <CardComponents title="Done" :length="doneLength" :tasks="doneTasks" @dragStart="onDragStart"
+                        :isDragging="isDragging" :taskId="id" /> -->
+                    <TypeComponents line_color="#65dd19" title="Done"></TypeComponents>
+                    <TaskComponents title_type="Completed Tasks"></TaskComponents>
+
+                </div>
+
+                <div class="col-md-3" @dragover.prevent @drop="onDrop('doneTasks')">
+                    <!-- <CardComponents title="Done" :length="doneLength" :tasks="doneTasks" @dragStart="onDragStart"
+                        :isDragging="isDragging" :taskId="id" /> -->
+                    <!-- <TypeComponents></TypeComponents> -->
+
                 </div>
             </div>
         </div>
@@ -22,6 +37,7 @@
 <script setup>
 import { ref, computed } from 'vue';
 import CardComponents from '../components/CardComponents.vue';
+import TaskComponents from '~/components/TaskComponents.vue';
 
 const todoTasks = ref([
     { id: 1, title: 'Task 1', description: 'This is task 1.' },
@@ -84,4 +100,7 @@ useAsyncData(async () => {
 
 <style scoped>
 /* Add any styles that are specific to this component here */
+.container {
+    background-color: white;
+}
 </style>

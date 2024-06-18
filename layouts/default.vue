@@ -1,50 +1,48 @@
 <template>
-    <div>
-        <header>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">Navbar</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Dropdown
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-                        </li>
-                    </ul>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
-                </div>
+    <a-layout class="layout">
+        <a-layout-header>
+            <div class="logo" />
+            <a-menu v-model:selectedKeys="selectedKeys" theme="dark" mode="horizontal" :style="{ lineHeight: '64px' }">
+                <a-menu-item key="1">nav 1</a-menu-item>
+                <a-menu-item key="2">nav 2</a-menu-item>
+                <a-menu-item key="3">nav 3</a-menu-item>
+            </a-menu>
+        </a-layout-header>
+        <a-layout-content style="padding: 0 50px">
+        
+            <div :style="{ background: '#fff', padding: '24px', minHeight: '280px' }">
+                <RouterView />
             </div>
-        </nav>
-    </header>
-    <div class="content mt-2">
-        <slot />
-    </div>
-    </div>
+        </a-layout-content>
+        <a-layout-footer style="text-align: center">
+            Ant Design ©2018 Created by Ant UED
+        </a-layout-footer>
+    </a-layout>
 </template>
+<script lang="ts" setup>
+const selectedKeys = ref<string[]>(['2']);
+</script>
+<style scoped>
+.site-layout-content {
+    min-height: 280px;
+    padding: 24px;
+    background: #fff;
+}
+
+#components-layout-demo-top .logo {
+    float: left;
+    width: 120px;
+    height: 31px;
+    margin: 16px 24px 16px 0;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.ant-row-rtl #components-layout-demo-top .logo {
+    float: right;
+    margin: 16px 0 16px 24px;
+}
+
+[data-theme='dark'] .site-layout-content {
+    background: #141414;
+}
+</style>
