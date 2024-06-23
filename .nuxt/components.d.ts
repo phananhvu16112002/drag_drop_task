@@ -2,6 +2,7 @@
 interface _GlobalComponents {
       'CardComponents': typeof import("../components/CardComponents.vue")['default']
     'CardTaskComponents': typeof import("../components/CardTaskComponents.vue")['default']
+    'TableComponent': typeof import("../components/TableComponent.vue")['default']
     'TaskComponents': typeof import("../components/TaskComponents.vue")['default']
     'TypeComponents': typeof import("../components/TypeComponents.vue")['default']
     'NuxtWelcome': typeof import("../node_modules/@nuxt/ui-templates/dist/templates/welcome.vue")['default']
@@ -953,6 +954,7 @@ interface _GlobalComponents {
     'Body': typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
       'LazyCardComponents': typeof import("../components/CardComponents.vue")['default']
     'LazyCardTaskComponents': typeof import("../components/CardTaskComponents.vue")['default']
+    'LazyTableComponent': typeof import("../components/TableComponent.vue")['default']
     'LazyTaskComponents': typeof import("../components/TaskComponents.vue")['default']
     'LazyTypeComponents': typeof import("../components/TypeComponents.vue")['default']
     'LazyNuxtWelcome': typeof import("../node_modules/@nuxt/ui-templates/dist/templates/welcome.vue")['default']
@@ -1918,6 +1920,7 @@ declare module 'vue' {
 
 export const CardComponents: typeof import("../components/CardComponents.vue")['default']
 export const CardTaskComponents: typeof import("../components/CardTaskComponents.vue")['default']
+export const TableComponent: typeof import("../components/TableComponent.vue")['default']
 export const TaskComponents: typeof import("../components/TaskComponents.vue")['default']
 export const TypeComponents: typeof import("../components/TypeComponents.vue")['default']
 export const NuxtWelcome: typeof import("../node_modules/@nuxt/ui-templates/dist/templates/welcome.vue")['default']
@@ -2869,6 +2872,7 @@ export const Html: typeof import("../node_modules/nuxt/dist/head/runtime/compone
 export const Body: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
 export const LazyCardComponents: typeof import("../components/CardComponents.vue")['default']
 export const LazyCardTaskComponents: typeof import("../components/CardTaskComponents.vue")['default']
+export const LazyTableComponent: typeof import("../components/TableComponent.vue")['default']
 export const LazyTaskComponents: typeof import("../components/TaskComponents.vue")['default']
 export const LazyTypeComponents: typeof import("../components/TypeComponents.vue")['default']
 export const LazyNuxtWelcome: typeof import("../node_modules/@nuxt/ui-templates/dist/templates/welcome.vue")['default']
